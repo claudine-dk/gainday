@@ -1,0 +1,9 @@
+.DS_Store
+.vercel/
+node_modules/
+*.log
+
+# Internal notes, kept out of the public repo. Commit these if the repo
+# ever goes private: they are the handoff record for this project.
+PRODUCT.md
+README.md

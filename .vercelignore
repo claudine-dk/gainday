@@ -1,0 +1,9 @@
+# Internal notes. These would otherwise be public at /README.md etc, and they
+# contain the imagery audit, unsigned-off FAQ copy, and strategy notes.
+*.md
+
+# Source plates. The site serves the .webp; the .jpg stays as a local fallback
+# for browsers without image-set(), so keep these two lines commented unless
+# you have confirmed your audience is entirely on modern browsers.
+# assets/field-night.jpg
+# assets/field-night-sm.jpg
