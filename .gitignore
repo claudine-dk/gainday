@@ -7,3 +7,6 @@ node_modules/
 # ever goes private: they are the handoff record for this project.
 PRODUCT.md
 README.md
+
+# Client copy deck, not site code
+reference/

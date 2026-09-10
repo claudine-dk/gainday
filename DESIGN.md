@@ -36,8 +36,8 @@ variants stay on-system instead of drifting into one-off literals:
 | `--chalk` | `0.965 0.005 106` | `#f4f4f0` | #F5F5F0 Chalk White |
 
 Per-band text ramps: `--on-chalk`, `--on-chalk-dim`, `--on-navy`, `--on-navy-2`,
-`--on-navy-3`. Semantic: `--rule`, `--rule-hi`, `--wash`, `--panel`, `--focus`,
-`--danger`, `--ok`.
+`--on-navy-3`. Semantic: `--rule`, `--rule-hi`, `--wash`, `--focus`, `--danger`,
+`--ok`.
 
 Never `#000` or `#fff`. Every neutral is tinted toward green or navy.
 
@@ -46,12 +46,20 @@ Never `#000` or `#fff`. Every neutral is tinted toward green or navy.
 the same.
 
 ## Tonal arc (art direction per section)
-Night field, printed record, darkness, lift, the ask, the plan, back to the field.
+Night field, printed record, proof, the reach, the lift, the money, the discipline,
+the roster, the ask, the plan, the commitment, the record, back to the field.
 
-`01 hero` green drench · `02 who` green · `03 story` chalk · `04 impact` chalk ·
-`05 challenge` ink · `06 if we wait` ink · `07 vision` green · `08 investment` navy ·
-`09 leadership` navy · `10 partnership` navy · `11 pledge` navy ·
-`12 timeline` chalk · `13 faq` chalk · `14 final` green drench
+`hero` green drench · `who` green · `story` chalk · `impact` chalk · `global` ink ·
+`vision` green · `investment` navy · `journey` ink · `leadership` navy ·
+`partnership` navy · `timeline` chalk · `pledge` navy · `faq` chalk ·
+`final` green drench
+
+Fourteen sections now, up from the wireframe's original set, once the approved copy
+deck (client Google Doc, superseding the wireframe as content source of truth)
+added Our Global Community and Your GAIN Journey and split the old single Timeline
+section into a road-to-GAIN band and a Make Your Commitment band. The Challenge and
+If We Wait sections from the wireframe draft are gone: the deck folds the storm
+narrative into Our Story as prose instead of a separate damage-and-cost section.
 
 ## Typography
 Brand guide specifies Freshman (varsity block) and Archivo Narrow. Freshman is not
@@ -83,9 +91,17 @@ Fluid `clamp()`, ratio ≥ 1.32 between steps. Body measure capped at 62ch.
    rungs. Never six identical cards.
 6. **Scouting slates.** Pending photo slots are designed registration frames carrying
    the exact asset spec, not gray boxes.
-7. **Tier rows are the entry point.** Each rung in the depth chart is a link that
-   preselects itself in the commitment card and flashes the field. The hover arrow
-   appears only under `@media (hover: hover)`, so touch never shows a dead affordance.
+7. **Tier rows are the entry point.** Each rung in the depth chart is a plain link to
+   the official pledge form (tlhc.org/gain-form, external, already live), carrying a
+   `data-tier` attribute as an analytics hook. The hover arrow appears only under
+   `@media (hover: hover)`, so touch never shows a dead affordance.
+8. **The commitment card sets expectations, not a duplicate form.** GAIN Day's pledge
+   form lives at tlhc.org and is already live; this page never re-implements it. The
+   card in Make Your Commitment lists what the real form will ask for, then hands off
+   with one CTA. No local validation, no fake submit state.
+9. **One accent pull-quote, two jobs.** `.leadquote` (Graduate serif, gold cite) carries
+   the leadership pull-quote and, unattributed, the stewardship line in Partnership
+   Tiers. Same component, no attribution required.
 
 ## Motion
 

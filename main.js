@@ -1,16 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
    GAIN DAY · The Lighthouse Church
+
+   The pledge form lives at tlhc.org/gain-form, external and already live.
+   Every CTA on this page is a plain link there (target="_blank"); there is
+   no local form and nothing here submits or validates anything.
    ═══════════════════════════════════════════════════════════════════ */
-
-/* Set this to the pledge endpoint (ChurchFunnels, Google Form, or your own
-   handler). Until it is set, the form validates but does not submit. */
-const FORM_ENDPOINT = null;
-
-const PLEDGE_MONTHS = 24;
-
-/* A single pledge above the whole campaign goal is a typo, not a gift.
-   Anything genuinely that large is a conversation, not a web form. */
-const CAMPAIGN_GOAL = 5000000;
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $  = (s, r = document) => r.querySelector(s);
@@ -19,11 +13,12 @@ const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 /* ── scroll reveals ──────────────────────────────────────────────── */
 (() => {
   const targets = $$([
-    '.shead', '.lede', '.creed__item', '.play', '.trial', '.stamp',
-    '.box', '.dmg li', '.alarm', '.cost li', '.build li', '.vision__side',
-    '.scoreboard', '.roi', '.card', '.tiers > li', '.ppp li', '.cardform',
-    '.road li', '.qa details', '.final__h', '.final__tag', '.final .btn',
-    '.final .kicker', '.slate'
+    '.shead', '.lede', '.prose', '.play', '.trial', '.stamp',
+    '.box', '.cost li', '.build li', '.vision__side', '.miniframes',
+    '.scoreboard', '.card', '.leadquote', '.tiers > li', '.ppp li',
+    '.commitcard', '.road li', '.qa details', '.final__h', '.final__body',
+    '.final__tag', '.final .btn', '.final .kicker', '.slate',
+    '.social-strip'
   ].join(','));
 
   targets.forEach((el) => el.classList.add('reveal'));
@@ -184,161 +179,6 @@ const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   }, { threshold: 0.3 });
   io.observe(sb);
 })();
-
-/* ── pledge form ─────────────────────────────────────────────────── */
-(() => {
-  const form = $('#pledgeForm');
-  if (!form) return;
-
-  const status = $('#formStatus');
-  const submit = $('#submitBtn');
-  const amount = $('#f-amount');
-  const hint = $('#f-amount-hint');
-  const tier = $('#f-tier');
-  const nf = new Intl.NumberFormat('en-US');
-
-  const digits = (v) => v.replace(/[^\d]/g, '');
-
-  const showMonthly = () => {
-    const n = Number(digits(amount.value));
-    if (n > CAMPAIGN_GOAL) {
-      hint.innerHTML = 'That is more than the whole campaign goal.';
-      return;
-    }
-    hint.innerHTML = n > 0
-      ? `That is about <b>$${nf.format(Math.round(n / PLEDGE_MONTHS))}</b> a month for ${PLEDGE_MONTHS} months.`
-      : `That is about <b>$0</b> a month.`;
-  };
-
-  amount.addEventListener('input', () => {
-    const raw = digits(amount.value);
-    amount.value = raw ? nf.format(Number(raw)) : '';
-    showMonthly();
-  });
-
-  /* one rule per field, so submit and live-recovery share the same source */
-  const rules = {
-    'f-name':   (v) => v.trim().length >= 2 ? '' : 'Please enter your full name.',
-    'f-email':  (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Please enter a valid email address.',
-    'f-tier':   (v) => v ? '' : 'Please choose a partner tier.',
-    'f-amount': (v) => {
-      const n = Number(digits(v));
-      if (!(n > 0)) return 'Please enter your total pledge amount.';
-      if (n > CAMPAIGN_GOAL) return 'That is above the whole campaign goal. Please contact our team to arrange a gift this size.';
-      return '';
-    }
-  };
-
-  const setErr = (field, msg) => {
-    const slot = form.querySelector(`.err[data-for="${field.id}"]`);
-    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
-    if (slot) slot.textContent = msg || '';
-  };
-
-  const validate = () => {
-    let firstBad = null, bad = 0;
-    for (const id of Object.keys(rules)) {
-      const f = document.getElementById(id);
-      const msg = rules[id](f.value);
-      setErr(f, msg);
-      if (msg) { bad += 1; if (!firstBad) firstBad = f; }
-    }
-    return { firstBad, bad };
-  };
-
-  /* once a field has errored, let it clear itself as soon as it is right */
-  Object.keys(rules).forEach((id) => {
-    const f = document.getElementById(id);
-    const recheck = () => {
-      if (f.getAttribute('aria-invalid') !== 'true') return;
-      const msg = rules[id](f.value);
-      if (!msg) setErr(f, '');
-    };
-    f.addEventListener('input', recheck);
-    f.addEventListener('change', recheck);
-    f.addEventListener('blur', () => {
-      if (f.getAttribute('aria-invalid') === 'true') setErr(f, rules[id](f.value));
-    });
-  });
-
-  /* a tier row in section 10 preselects itself here */
-  document.addEventListener('click', (e) => {
-    const row = e.target.closest('.tier[data-tier]');
-    if (!row) return;
-    const want = row.dataset.tier;
-    const opt = [...tier.options].find((o) => o.value === want || o.text === want);
-    if (!opt) return;
-    tier.value = opt.value;
-    setErr(tier, '');
-    if (reduced) return;
-    tier.classList.remove('is-preset');
-    void tier.offsetWidth;
-    tier.classList.add('is-preset');
-  });
-
-  const setBusy = (on) => {
-    submit.disabled = on;
-    form.setAttribute('aria-busy', String(on));
-  };
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    status.classList.remove('is-ok');
-
-    /* One polite summary. The per-field detail rides on aria-describedby and is
-       announced when focus lands, which avoids four assertive regions colliding. */
-    const { firstBad, bad } = validate();
-    if (firstBad) {
-      status.textContent = bad === 1
-        ? 'One field needs your attention.'
-        : `${bad} fields need your attention.`;
-      firstBad.focus();
-      return;
-    }
-
-    const payload = {
-      name: $('#f-name').value.trim(),
-      email: $('#f-email').value.trim(),
-      phone: $('#f-phone').value.trim(),
-      tier: tier.value,
-      amount: Number(digits(amount.value)),
-      months: PLEDGE_MONTHS
-    };
-
-    if (!FORM_ENDPOINT) {
-      status.textContent = 'This form is not connected yet. Your pledge was not submitted.';
-      console.warn(
-        'GAIN Day: no pledge endpoint configured. Set FORM_ENDPOINT in main.js.\nPayload would have been:',
-        payload
-      );
-      return;
-    }
-
-    setBusy(true);
-    status.textContent = 'Sending your commitment…';
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      showMonthly();
-      Object.keys(rules).forEach((id) => setErr(document.getElementById(id), ''));
-      status.classList.add('is-ok');
-      status.textContent = 'You are in the GAIN. Thank you.';
-    } catch (err) {
-      status.textContent = 'Something went wrong. Please try again, or call the church office.';
-      console.error('GAIN Day pledge submit failed:', err);
-    } finally {
-      setBusy(false);
-    }
-  });
-
-  showMonthly();
-})();
-
 
 /* ── anchor offset for the fixed nav ─────────────────────────────── */
 (() => {
