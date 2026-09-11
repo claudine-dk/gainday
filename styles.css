@@ -348,7 +348,8 @@ section[id] { scroll-margin-top: 5.5rem; }
   font-size: var(--t-sm); font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.1em;
   text-decoration: none; color: var(--chalk-dim);
-  padding-block: 0.8rem;
+  padding: 0.8rem 0.35rem;
+  margin-inline: -0.35rem;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
   transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
@@ -1040,7 +1041,6 @@ section[id] { scroll-margin-top: 5.5rem; }
 .commitcard__foot {
   font-family: "Archivo Narrow", Archivo, sans-serif;
   font-size: var(--t-xs);
-  text-transform: uppercase; letter-spacing: 0.14em;
   color: var(--on-chalk-dim);
   margin-top: 1rem;
   text-align: center;
@@ -1195,7 +1195,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   border-top: 1px solid var(--rule);
 }
 .foot__name { color: var(--chalk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; }
-.foot a { color: var(--gold); text-underline-offset: 3px; display: inline-block; padding-block: 0.75rem; }
+.foot a { color: var(--gold); text-underline-offset: 3px; display: inline-block; padding: 0.75rem 0.3rem; margin-inline: -0.3rem; }
 .foot a:active { color: var(--gold-deep); }
 .foot__verse { max-width: 30ch; }
 
