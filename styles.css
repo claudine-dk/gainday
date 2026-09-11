@@ -146,7 +146,11 @@ button, input, select { font: inherit; color: inherit; }
 
 /* ── shared type ─────────────────────────────────────────────────── */
 h1, h2, h3 { line-height: 1.06; font-weight: 700; letter-spacing: -0.022em; }
-h2 { font-size: var(--t-h2); text-transform: uppercase; letter-spacing: -0.035em; text-wrap: balance; }
+/* overflow-wrap is a safety net: text-wrap: balance picks line-break widths
+   assuming every word can break at a space, but doesn't re-check that its
+   own last line still fits, so a long unbroken word (e.g. "extraordinary.")
+   can overflow its own container by several rem after balancing. */
+h2 { font-size: var(--t-h2); text-transform: uppercase; letter-spacing: -0.035em; text-wrap: balance; overflow-wrap: break-word; }
 h3 { font-size: var(--t-h3); letter-spacing: -0.018em; text-wrap: balance; }
 p, li, dd, figcaption { text-wrap: pretty; }
 
