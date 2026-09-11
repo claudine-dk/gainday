@@ -611,6 +611,14 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 /* ── photo slates ────────────────────────────────────────────────── */
 .slate-set { display: grid; gap: clamp(1.5rem, 3.5vw, 2.5rem); }
+/* Stacked is fine for two photos, but three stacked 4:3 frames run roughly
+   3x taller than .trial's prose column, leaving a long empty gap beside it
+   on wide viewports. Two up, one wide below keeps the same photos but at
+   proportions closer to the text next to them. */
+@media (min-width: 64rem) {
+  .slate-set { grid-template-columns: 1fr 1fr; }
+  .slate-set > :last-child { grid-column: 1 / -1; }
+}
 .slate { margin: 0; }
 .slate__frame {
   position: relative;
