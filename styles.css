@@ -610,6 +610,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   border-top: 2px solid var(--ink);
 }
 /* ── photo slates ────────────────────────────────────────────────── */
+.slate-set { display: grid; gap: clamp(1.5rem, 3.5vw, 2.5rem); }
 .slate { margin: 0; }
 .slate__frame {
   position: relative;
