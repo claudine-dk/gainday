@@ -316,7 +316,11 @@ section[id] { scroll-margin-top: 5.5rem; }
   transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 .nav.is-stuck {
-  background: oklch(var(--ink-ch) / 0.94);
+  /* Fully opaque, deliberately. At 0.94 the fixed nav let scrolling content
+     ghost through underneath it: bright text at high contrast is legible
+     even through a 6% gap, since there is no backdrop-filter blur to soften
+     what's behind. A solid nav bar cannot show what it's covering. */
+  background: var(--ink);
   border-bottom: 1px solid var(--rule);
 }
 .nav__in {
@@ -366,7 +370,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 .drawer {
   display: grid; gap: 0.25rem;
   padding: 0.5rem var(--gut) 1.75rem;
-  background: oklch(var(--ink-ch) / 0.98);
+  background: var(--ink);
   border-top: 1px solid var(--rule);
 }
 .drawer a {
@@ -560,12 +564,12 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 .drive-chart::before {
   content: ""; position: absolute; top: 0.6rem; bottom: 0.6rem;
-  left: clamp(3.4rem, 8vw, 5.6rem);
+  left: clamp(4.4rem, 8vw, 5.6rem);
   width: 1px; background: var(--rule);
 }
 .play {
   display: grid;
-  grid-template-columns: clamp(3.4rem, 8vw, 5.6rem) 1fr;
+  grid-template-columns: clamp(4.4rem, 8vw, 5.6rem) 1fr;
   gap: 0 clamp(1.25rem, 3vw, 2.5rem);
   padding-block: clamp(1.1rem, 2.4vw, 1.75rem);
   position: relative;
@@ -1211,7 +1215,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   margin-inline: auto; max-width: 34rem;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 0.7rem 0.7rem 0.7rem 1.25rem;
-  background: oklch(var(--ink-ch) / 0.96);
+  background: var(--ink);
   border: 1px solid var(--rule-hi);
   color: var(--chalk);
   font-family: "Archivo Narrow", Archivo, sans-serif;
