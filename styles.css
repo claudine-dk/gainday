@@ -1083,19 +1083,24 @@ section[id] { scroll-margin-top: 5.5rem; }
   font-weight: 600;
   letter-spacing: -0.018em;
   line-height: 1.24;
+  transition: background-color 0.3s var(--ease);
 }
+/* the only interactive row on the page with no hover feedback before this;
+   .tier washes its background on hover, this matches that language */
+.qa summary:hover { background: var(--wash); }
 .qa summary::-webkit-details-marker { display: none; }
 .qa summary::after {
   content: ""; position: absolute; right: 0.35rem; top: 50%;
   width: 14px; height: 2px; background: var(--field);
-  transition: transform 0.35s var(--ease);
+  transition: transform 0.35s var(--ease), background-color 0.3s var(--ease);
 }
 .qa summary::before {
   content: ""; position: absolute; right: 0.35rem; top: 50%;
   width: 14px; height: 2px; background: var(--field);
-  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
+  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), background-color 0.3s var(--ease);
   transform: rotate(90deg);
 }
+.qa summary:hover::after, .qa summary:hover::before { background: var(--gold-deep); }
 .qa details[open] summary::before { transform: rotate(0deg); opacity: 0; }
 .qa__body { padding-bottom: clamp(1.15rem, 2.6vw, 1.75rem); }
 .qa__body p { color: var(--fg-soft); max-width: 62ch; }
