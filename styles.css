@@ -349,6 +349,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   letter-spacing: 0.01em;
   color: var(--chalk);
 }
+.brand__mark-img { height: 0.78em; width: auto; vertical-align: -0.06em; display: inline-block; }
 
 .nav__links { display: flex; gap: clamp(1rem, 2.2vw, 2rem); }
 .nav__links a {
@@ -398,9 +399,20 @@ section[id] { scroll-margin-top: 5.5rem; }
   min-height: 100svh;
   display: flex; align-items: flex-end;
   padding-block: clamp(5.5rem, 10.5vh, 8rem) clamp(2.25rem, 5.5vh, 4rem);
-  background: var(--field-900);
+  background-color: var(--field-900);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
   isolation: isolate;
+}
+/* same size-tiered breakpoint as .hero__field below, so mobile never pays
+   for the full desktop texture */
+@media (max-width: 56.24rem) {
+  .hero { background-image: url('assets/hero-texture-sm.jpg'); }
+}
+@media (min-width: 56.25rem) {
+  .hero { background-image: url('assets/hero-texture.jpg'); }
 }
 .hero__field {
   position: absolute; inset-inline: 0; bottom: 0; z-index: -2;
@@ -459,6 +471,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 .wordmark__line { display: block; }
 .wordmark__line:last-child { margin-left: 0.09em; }
+.wordmark__img { height: 0.72em; width: auto; display: block; }
 
 .hero__tag {
   font-family: "Archivo Narrow", Archivo, sans-serif;
@@ -469,6 +482,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   color: var(--chalk-dim);
 }
 .hero__tag b { color: var(--gold); font-weight: 700; }
+.tagline-img { height: 0.85em; width: auto; display: block; }
 
 .hero__ledes { margin-top: clamp(1.75rem, 4vw, 2.75rem); }
 .hero__lede {
