@@ -1,7 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════
    GAIN DAY · The Lighthouse Church
    Lane: championship game program × broadcast graphics package.
-   Color strategy: drenched field green, gold load-bearing, navy second world.
+   Color strategy: drenched field green, gold load-bearing, deep ink second
+   world (no blue: campaign manager wants this site distinct from TLHC's own
+   blue brand, green / white / black only).
    ═══════════════════════════════════════════════════════════════════ */
 
 /* Self-hosted: same origin, no third-party round trip, no Google Fonts
@@ -39,8 +41,8 @@
   --field9-ch: 0.225 0.042 150;
   --field-ch:  0.450 0.098 143;
   --glow-ch:   0.620 0.105 145;
-  --navy9-ch:  0.205 0.072 265;
-  --navy-ch:   0.262 0.090 264;
+  --navy9-ch:  0.205 0.072 152;
+  --navy-ch:   0.262 0.090 152;
   --gold-ch:   0.795 0.145 82;
   --chalk-ch:  0.965 0.005 106;
 
@@ -49,10 +51,11 @@
   --field-900:  oklch(var(--field9-ch));
   --field:      oklch(var(--field-ch));
 
-  /* navy ramp */
+  /* "navy" ramp: names kept for a minimal diff, but recolored to green-black
+     hue (was blue 264, now 152) so nothing on the page reads as blue */
   --navy-900:   oklch(var(--navy9-ch));
   --navy:       oklch(var(--navy-ch));
-  --navy-700:   oklch(0.340 0.098 264);
+  --navy-700:   oklch(0.340 0.098 152);
 
   /* gold + chalk */
   --gold:       oklch(var(--gold-ch));
@@ -74,9 +77,9 @@
   /* per-band text ramps */
   --on-chalk:     oklch(0.420 0.018 150);
   --on-chalk-dim: oklch(0.480 0.018 150);
-  --on-navy:      oklch(0.790 0.030 262);
-  --on-navy-2:    oklch(0.700 0.030 262);
-  --on-navy-3:    oklch(0.655 0.028 262);
+  --on-navy:      oklch(0.790 0.030 152);
+  --on-navy-2:    oklch(0.700 0.030 152);
+  --on-navy-3:    oklch(0.655 0.028 152);
   --ok:      oklch(0.480 0.110 150);
 
   /* masks only ever read the alpha channel; the color never paints */
