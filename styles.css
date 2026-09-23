@@ -1223,7 +1223,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 /* Circular stamp logo, not a wide wordmark: needs more height than the old
    horizontal lockup did to keep its ring text legible. */
-.foot__logo { height: clamp(2.5rem, 5.5vw, 3.25rem); width: auto; display: block; }
+.foot__logo { height: clamp(3.75rem, 8vw, 5rem); width: auto; display: block; }
 .foot__socials {
   list-style: none; padding: 0; margin: 0;
   display: flex; gap: 0.25rem;
