@@ -361,7 +361,10 @@ section[id] { scroll-margin-top: 5.5rem; }
   letter-spacing: 0.01em;
   color: var(--chalk);
 }
-.brand__mark-img { height: 0.78em; width: auto; vertical-align: -0.06em; display: inline-block; }
+/* Fixed rem scale, not em: this is a circular badge (fine ring text), not a
+   wordmark, so it's sized off the nav bar's own height rather than the
+   adjacent text's font-size the way the old wordmark image was. */
+.brand__mark-img { height: clamp(2.15rem, 4.2vw, 2.65rem); width: auto; display: block; }
 
 .nav__links { display: flex; gap: clamp(1rem, 2.2vw, 2rem); }
 .nav__links a {
