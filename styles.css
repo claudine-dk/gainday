@@ -275,6 +275,10 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 .shead__txt { min-width: 0; }
 .shead .kicker { margin-bottom: 0.85rem; }
+/* Utility pages off the numbered section flow (e.g. /resources) skip the
+   .shead__num badge - collapse to one column so .shead__txt still gets the
+   full width instead of just the "auto" track's content width. */
+.shead--plain { grid-template-columns: minmax(0, 1fr); }
 
 /* ── buttons ─────────────────────────────────────────────────────── */
 .btn {
@@ -322,7 +326,12 @@ section[id] { scroll-margin-top: 5.5rem; }
   position: fixed; inset-inline: 0; top: 0; z-index: 110;
   transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.nav.is-stuck {
+.nav.is-stuck,
+/* The nav starts transparent everywhere else because the hero underneath
+   is always dark, so light nav text stays readable pre-scroll. This page
+   has no hero - its first section is the light chalk band - so its nav
+   needs the solid, opaque treatment unconditionally, not just once stuck. */
+.no-hero .nav {
   /* Fully opaque, deliberately. At 0.94 the fixed nav let scrolling content
      ghost through underneath it: bright text at high contrast is legible
      even through a 6% gap, since there is no backdrop-filter blur to soften
@@ -1203,6 +1212,47 @@ section[id] { scroll-margin-top: 5.5rem; }
   max-width: 46ch;
   margin: clamp(1.5rem, 3.5vw, 2.25rem) auto clamp(2.25rem, 5vw, 3.25rem);
 }
+
+/* ── resources page ──────────────────────────────────────────────── */
+/* Only page in the site with no hero below the fixed nav, so its first
+   section needs its own clearance instead of the hero's built-in space. */
+#resources-list { padding-top: clamp(7rem, 15vw, 10rem); }
+.resources { list-style: none; padding: 0; margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--rule-hi); }
+.resources > li { border-bottom: 1px solid var(--rule-hi); }
+.resource {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.35rem clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 2.8vw, 1.75rem) 0.75rem;
+  margin-inline: -0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s var(--ease), transform 0.35s var(--ease);
+}
+a.resource:hover { background: var(--wash); }
+a.resource:active { transform: scale(0.995); transition-duration: 0.08s; }
+.resource--soon { cursor: default; }
+.resource__body { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.resource__name {
+  font-family: Graduate, Georgia, serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+}
+.resource__desc {
+  font-size: var(--t-sm);
+  color: var(--fg-soft);
+  max-width: 46ch;
+}
+.resource__cta {
+  font-family: "Archivo Narrow", Archivo, sans-serif;
+  font-weight: 700;
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--field);
+  white-space: nowrap;
+}
+.resource--soon .resource__cta { color: var(--fg-soft); }
 
 /* ── footer ──────────────────────────────────────────────────────── */
 .foot {
