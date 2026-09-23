@@ -406,9 +406,13 @@ section[id] { scroll-margin-top: 5.5rem; }
 /* ── 01 hero ─────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100svh;
+  /* Content is bottom-anchored (align-items: flex-end), so this height -
+     not the top padding below - is what sets the gap above the kicker on
+     viewports where the content doesn't fill it. Was 100svh: too much air
+     above "Are you ready for GAIN?" on shorter/wider viewports. */
+  min-height: 88svh;
   display: flex; align-items: flex-end;
-  padding-block: clamp(5.5rem, 10.5vh, 8rem) clamp(2.25rem, 5.5vh, 4rem);
+  padding-block: clamp(4rem, 8vh, 6rem) clamp(2.25rem, 5.5vh, 4rem);
   background-color: var(--field-900);
   background-position: center;
   background-size: cover;
