@@ -359,7 +359,7 @@ section[id] { scroll-margin-top: 5.5rem; }
    wordmark, so it's sized off the nav bar's own height rather than any
    adjacent text's font-size. Now the only thing in .brand (the "THE
    LIGHTHOUSE CHURCH" label above it is gone), so it can run a bit bigger. */
-.brand__mark-img { height: clamp(2.5rem, 4.8vw, 3rem); width: auto; display: block; }
+.brand__mark-img { height: clamp(3.25rem, 6.2vw, 3.9rem); width: auto; display: block; }
 
 .nav__links { display: flex; gap: clamp(1rem, 2.2vw, 2rem); }
 .nav__links a {
