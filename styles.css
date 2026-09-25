@@ -406,13 +406,20 @@ section[id] { scroll-margin-top: 5.5rem; }
 /* ── 01 hero ─────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  /* Content is bottom-anchored (align-items: flex-end), so this height -
-     not the top padding below - is what sets the gap above the kicker on
-     viewports where the content doesn't fill it. Was 100svh: too much air
-     above "Are you ready for GAIN?" on shorter/wider viewports. */
+  /* Content is bottom-anchored (align-items: flex-end), so min-height only
+     sets the gap above the kicker when content is SHORTER than it - that's
+     the 100svh -> 88svh cut below. But on a short/medium viewport where the
+     stacked hero content (kicker, wordmark, ledes, verse, buttons) is
+     TALLER than min-height, the box grows to fit it and flex-end packs
+     everything toward the bottom regardless of min-height, so the top
+     padding floor becomes the ONLY thing standing between the kicker and
+     the fixed nav overlapping it. That floor was cut to 4rem in the same
+     change that introduced this bug (reproduced at 1100x700 and 390x700,
+     nav bottom edge past the kicker's top edge) - restored to 7rem, safely
+     past the tallest measured nav height (~107px) with room to spare. */
   min-height: 88svh;
   display: flex; align-items: flex-end;
-  padding-block: clamp(4rem, 8vh, 6rem) clamp(2.25rem, 5.5vh, 4rem);
+  padding-block: clamp(7rem, 10.5vh, 8rem) clamp(2.25rem, 5.5vh, 4rem);
   background-color: var(--field-900);
   background-position: center;
   background-size: cover;
