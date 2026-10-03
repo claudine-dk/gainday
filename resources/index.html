@@ -104,13 +104,13 @@
         </a>
       </li>
       <li>
-        <span class="resource resource--soon" aria-disabled="true">
+        <button class="resource resource--btn" type="button" data-video-open aria-haspopup="dialog">
           <span class="resource__body">
             <span class="resource__name">Prayer and Fasting Explainer</span>
             <span class="resource__desc">A short video on the GAIN 21-day fast.</span>
           </span>
-          <span class="resource__cta">Coming soon</span>
-        </span>
+          <span class="resource__cta">Watch</span>
+        </button>
       </li>
       <li>
         <a class="resource" href="/assets/gain-21-day-devotional.pdf" target="_blank" rel="noopener">
@@ -212,6 +212,27 @@
     I'm in<span class="sr-only"> (opens the pledge form in a new tab)</span>
   </a>
 </div>
+
+<dialog class="vid" id="vid" aria-label="Prayer and Fasting Explainer">
+  <button class="vid__close" type="button" data-video-close aria-label="Close video">&times;</button>
+  <video id="vid-player" controls playsinline preload="none" src="/assets/prayer-and-fasting-explainer.mp4"></video>
+</dialog>
+
+<script>
+(function () {
+  var d = document.getElementById('vid'), v = document.getElementById('vid-player');
+  var opener = null;
+  document.querySelector('[data-video-open]').addEventListener('click', function (e) {
+    opener = e.currentTarget;
+    d.showModal();
+    v.play().catch(function () {});
+  });
+  function close() { d.close(); }
+  d.querySelector('[data-video-close]').addEventListener('click', close);
+  d.addEventListener('click', function (e) { if (e.target === d) close(); });
+  d.addEventListener('close', function () { v.pause(); v.currentTime = 0; if (opener) opener.focus(); });
+})();
+</script>
 
 <script src="/main.js"></script>
 </body>
