@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resources | GAIN | The Lighthouse Church</title>
-<meta name="description" content="GAIN campaign resources: the spiritual commitment, the spiritual journey card, the prayer and fasting video, the 21-day devotional, the booklet, and GAIN merch.">
+<title>Spiritual Commitment | GAIN | The Lighthouse Church</title>
+<meta name="description" content="Pray, partner, and participate. Make your GAIN spiritual commitment in about two minutes.">
 <meta name="theme-color" content="#0c2111">
 
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -12,8 +12,8 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Resources | GAIN | The Lighthouse Church">
-<meta property="og:description" content="Your spiritual commitment, the journey card, the fasting video, the devotional, the booklet, and merch.">
+<meta property="og:title" content="Spiritual Commitment | GAIN | The Lighthouse Church">
+<meta property="og:description" content="Pray, partner, and participate. Make your GAIN spiritual commitment in about two minutes.">
 <meta property="og:image" content="/assets/field-night.jpg">
 
 <link rel="preload" href="/assets/fonts/graduate-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -63,87 +63,27 @@
 
 <main id="main">
 
-<!-- ══ RESOURCES ════════════════════════════════════════════════════ -->
-<section class="band band--chalk" id="resources-list">
-  <div class="wrap">
-    <header class="shead shead--plain">
-      <div class="shead__txt">
-        <p class="kicker">Resources</p>
-        <h2>Everything for <br>this season</h2>
-      </div>
-    </header>
+<!-- ══ SPIRITUAL COMMITMENT ═════════════════════════════════════════ -->
+<div class="gain-embed">
+  <iframe
+    id="gain-frame"
+    title="GAIN Spiritual Commitment"
+    data-src="/forms/spiritual-commitment/index.html"
+    allow="clipboard-write; web-share"
+    referrerpolicy="same-origin"></iframe>
+</div>
+<noscript>
+  <p class="note"><a class="textlink" href="/forms/spiritual-commitment/index.html">Open the spiritual commitment form</a></p>
+</noscript>
 
-    <p class="lede">One tap to open. Nothing to dig for.</p>
-
-    <ul class="resources">
-      <li>
-        <a class="resource" href="/resources/spiritual-commitment">
-          <span class="resource__body">
-            <span class="resource__name">Spiritual Commitment</span>
-            <span class="resource__desc">Pray, partner, and participate. Make your commitment in about two minutes.</span>
-          </span>
-          <span class="resource__cta">Commit</span>
-        </a>
-      </li>
-      <li>
-        <a class="resource" href="/assets/gain-declaration-print.pdf" target="_blank" rel="noopener">
-          <span class="resource__body">
-            <span class="resource__name">The Spiritual Journey Card</span>
-            <span class="resource__desc">Your declaration of faith for this season. Print it and keep it close.</span>
-          </span>
-          <span class="resource__cta">Open<span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="resource" href="/assets/gain-declaration-wallpaper.jpg" download>
-          <span class="resource__body">
-            <span class="resource__name">Declaration Phone Wallpaper</span>
-            <span class="resource__desc">Keep the declaration on your lock screen for all 21 days.</span>
-          </span>
-          <span class="resource__cta">Download</span>
-        </a>
-      </li>
-      <li>
-        <span class="resource resource--soon" aria-disabled="true">
-          <span class="resource__body">
-            <span class="resource__name">Prayer and Fasting Explainer</span>
-            <span class="resource__desc">A short video on the GAIN 21-day fast.</span>
-          </span>
-          <span class="resource__cta">Coming soon</span>
-        </span>
-      </li>
-      <li>
-        <a class="resource" href="/assets/gain-21-day-devotional.pdf" target="_blank" rel="noopener">
-          <span class="resource__body">
-            <span class="resource__name">The 21-Day Devotional</span>
-            <span class="resource__desc">A guided reading for each day of the fast, October 4&#8211;25.</span>
-          </span>
-          <span class="resource__cta">Open<span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="resource" href="/assets/gain-booklet.pdf" target="_blank" rel="noopener">
-          <span class="resource__body">
-            <span class="resource__name">The Booklet</span>
-            <span class="resource__desc">The full GAIN campaign story, in print.</span>
-          </span>
-          <span class="resource__cta">Open<span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-      </li>
-      <li>
-        <a class="resource" href="http://shop.tlhc.org/" target="_blank" rel="noopener">
-          <span class="resource__body">
-            <span class="resource__name">GAIN Merch</span>
-            <span class="resource__desc">Wear the moment. Shop at shop.tlhc.org.</span>
-          </span>
-          <span class="resource__cta">Shop<span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-      </li>
-    </ul>
-
-    <p class="note">New resources are added here as they are ready.</p>
-  </div>
-</section>
+<script>
+  /* Carries the page's query string into the form. Without this, ?src=
+     tracking and one-tap prefill links stop at this page and never reach it. */
+  (function () {
+    var f = document.getElementById('gain-frame');
+    f.src = f.dataset.src + window.location.search;
+  })();
+</script>
 
 </main>
 

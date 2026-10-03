@@ -505,6 +505,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   max-width: 22ch;
 }
 .hero__lede + .hero__lede { margin-top: 0.3em; }
+.hero__lede--one { max-width: 30ch; }
 
 .verse {
   margin-top: 1.75rem;
@@ -523,8 +524,34 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 
 .hero__acts { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: clamp(2rem, 4vw, 3rem); }
+.hero__acts--center { justify-content: center; }
 @media (max-width: 30rem) {
   .hero__acts { display: grid; gap: 0.7rem; }
+}
+
+/* "Learn more" row closing a condensed homepage section */
+.more { margin-top: clamp(2rem, 4vw, 3rem); }
+.textlink {
+  font-family: "Archivo Narrow", Archivo, sans-serif;
+  font-weight: 700; font-size: var(--t-sm);
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--gold);
+  text-underline-offset: 4px;
+}
+.textlink:hover { color: var(--chalk); }
+
+/* Spiritual commitment form: same-origin iframe filling the viewport below
+   the fixed nav. The form's commit bar is position:fixed, so the iframe needs a
+   viewport height, not a content height. */
+.gain-embed {
+  height: calc(100vh - 5.2rem);
+  min-height: 640px;
+  margin-top: 5.2rem;
+  background: #0a1a08;
+}
+.gain-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
+@media (max-width: 640px) {
+  .gain-embed { height: calc(100vh - 4.2rem); min-height: 560px; margin-top: 4.2rem; }
 }
 
 /* "Look what God has done": four-figure strip closing the hero. Numbers
@@ -727,7 +754,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 .ln + .ln { border-top: 1px solid var(--rule); }
 .ln dt {
-  grid-column: 1;
+  grid-column: 1; grid-row: 1;
   font-family: "Archivo Narrow", Archivo, sans-serif;
   font-size: clamp(0.8rem, 1.5vw, 0.95rem);
   font-weight: 600;
@@ -735,12 +762,14 @@ section[id] { scroll-margin-top: 5.5rem; }
   color: var(--fg-soft);
 }
 .ln::before {
-  content: ""; grid-column: 2;
+  content: ""; grid-column: 2; grid-row: 1;
+  align-self: end;
+  height: 0;
+  margin-bottom: 0.3em;
   border-bottom: 1px dotted var(--rule-hi);
-  translate: 0 -0.28em;
 }
 .ln dd {
-  grid-column: 3; margin: 0;
+  grid-column: 3; grid-row: 1; margin: 0;
   font-family: Graduate, Georgia, serif;
   font-size: clamp(1.35rem, 3.4vw, 2.35rem);
   line-height: 1;
@@ -1225,7 +1254,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 /* ── resources page ──────────────────────────────────────────────── */
 /* Only page in the site with no hero below the fixed nav, so its first
    section needs its own clearance instead of the hero's built-in space. */
-#resources-list { padding-top: clamp(7rem, 15vw, 10rem); }
+.no-hero main > .band:first-child { padding-top: clamp(7rem, 15vw, 10rem); }
 .resources { list-style: none; padding: 0; margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--rule-hi); }
 .resources > li { border-bottom: 1px solid var(--rule-hi); }
 .resource {
@@ -1301,8 +1330,8 @@ a.resource:active { transform: scale(0.995); transition-duration: 0.08s; }
 .foot__socials svg { width: 1.3rem; height: 1.3rem; }
 
 .foot__in {
-  display: flex; flex-wrap: wrap; gap: 1.5rem;
-  justify-content: space-between; align-items: end;
+  display: flex; flex-direction: column; gap: 1.5rem;
+  align-items: flex-start; text-align: left;
   padding-top: clamp(1.5rem, 3vw, 2rem);
   border-top: 1px solid var(--rule);
 }
