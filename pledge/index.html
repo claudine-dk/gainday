@@ -20,7 +20,7 @@
 <link rel="preload" href="/assets/fonts/archivo-narrow-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="no-hero">
+<body class="no-hero pledge-page">
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="drive" aria-hidden="true"><span class="drive__bar"></span></div>
@@ -64,21 +64,20 @@
 <main id="main">
 
 <!-- ══ PLEDGE FORM ══════════════════════════════════════════════════ -->
-<section class="band band--chalk" id="pledge-form">
+<section class="band band--ink" id="pledge-form">
   <div class="wrap wrap--narrow">
-    <header class="shead shead--plain">
-      <div class="shead__txt">
-        <p class="kicker">GAIN Stewardship Campaign</p>
-        <h2>I'm in</h2>
-      </div>
-    </header>
+    <div id="pledge-intro" class="pintro">
+      <picture>
+        <source srcset="/assets/pledge-hero.webp" type="image/webp">
+        <img class="pintro__img" src="/assets/pledge-hero.jpg" alt="Get ready for GAIN. Grace. Acceleration. Increase. Now." width="960" height="540">
+      </picture>
+      <p class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>GAIN Stewardship Campaign</p>
+      <h2 class="pintro__h">I'm <span>In.</span></h2>
+      <p class="pintro__lede">Thank you for partnering with us. Please complete the fields below so we can record your family's commitment.</p>
 
-    <div id="pledge-intro">
-      <p class="lede">Thank you for partnering with us. Please complete the fields below so we can record your family's commitment.</p>
-
-      <blockquote class="verse verse--chalk">
+      <blockquote class="pquote">
         <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us...&rdquo;</p>
-        <cite>Ephesians 3:20</cite>
+        <cite>&mdash; Ephesians 3:20</cite>
       </blockquote>
     </div>
 
@@ -160,16 +159,16 @@
 
       <noscript>
         <p class="note">This form needs JavaScript. You can also
-        <a class="textlink textlink--dark" href="https://www.tlhc.org/gain-form">use the form at tlhc.org</a>.</p>
+        <a class="textlink" href="https://www.tlhc.org/gain-form">use the form at tlhc.org</a>.</p>
       </noscript>
     </form>
 
     <div class="pthanks" id="pledge-thanks" tabindex="-1" hidden>
       <h3>Thank you.</h3>
-      <p class="lede">Your commitment has been received. Our Chief Strategy Officer, Ivy McGregor, will be in touch personally.</p>
-      <blockquote class="verse verse--chalk">
+      <p class="pintro__lede">Your commitment has been received. Our Chief Strategy Officer, Ivy McGregor, will be in touch personally.</p>
+      <blockquote class="pquote">
         <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us...&rdquo;</p>
-        <cite>Ephesians 3:20</cite>
+        <cite>&mdash; Ephesians 3:20</cite>
       </blockquote>
       <p class="more"><a class="btn btn--ghost btn--lg" href="/resources/spiritual-commitment">Make my spiritual commitment</a></p>
     </div>

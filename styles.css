@@ -1318,68 +1318,77 @@ button.resource:active { transform: scale(0.995); transition-duration: 0.08s; }
 .resource--soon .resource__cta { color: var(--fg-soft); }
 
 /* ── pledge form (/pledge) ───────────────────────────────────────── */
-.verse--chalk { color: var(--on-chalk); margin-top: 1.5rem; }
-.verse--chalk cite { color: var(--gold-deep); }
-.textlink--dark { color: var(--ink); }
+/* Replicates the look of the original tlhc.org/gain-form: black page, zinc
+   surfaces, teal/pink/amber accents. Scoped to .pledge-page so nothing here
+   touches the rest of the site. */
+.pledge-page { --pz-teal: #14b8a6; --pz-pink: #ec4899; --pz-amber: #f97316;
+  --pz-line: rgb(82 82 91 / 0.6); --pz-surface: rgb(39 39 42 / 0.8); --pz-text: #fafafa; --pz-label: #d4d4d8; --pz-hint: #a1a1aa; }
+.pledge-page .band { background: #000; color: var(--pz-text); --focus: var(--pz-teal); }
+.pledge-page .wrap { --max: 48rem; }
 
-.pform {
+.pintro { text-align: center; }
+.pintro__img { display: block; width: min(100%, 30rem); height: auto; margin: 0 auto clamp(1.75rem, 4vw, 2.5rem); border-radius: 1rem; }
+.pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem 1rem; margin: 0 0 1rem;
+  border: 1px solid rgb(15 118 110 / 0.5); border-radius: 9999px;
+  background: rgb(19 78 74 / 0.25); color: #5eead4;
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.pill svg { width: 1rem; height: 1rem; }
+.pintro__h { text-transform: none; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(2.5rem, 1.6rem + 4vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.pintro__h span { background: linear-gradient(to right, #2dd4bf, #f472b6, #d97706); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pintro__lede { font-size: var(--t-lg); line-height: 1.55; color: var(--pz-label); max-width: 36rem; margin: 0 auto; }
+.pquote { text-align: left; max-width: 36rem; margin: 1.75rem auto 0; padding-left: 1rem; border-left: 4px solid var(--pz-teal); font-style: italic; font-size: var(--t-sm); line-height: 1.6; color: var(--pz-hint); }
+.pquote cite { display: block; margin-top: 0.4rem; font-style: normal; font-weight: 700; font-size: var(--t-xs); color: #2dd4bf; }
+
+.pform, .pthanks {
   margin-top: clamp(2rem, 4vw, 3rem);
-  border: 2px solid var(--ink);
-  background: oklch(1 0 0);
-  padding: clamp(1.25rem, 3.5vw, 2.5rem);
-  display: grid; gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1px solid #262626; border-radius: 0.75rem;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
 }
-.pform__title {
-  font-family: Graduate, Georgia, serif; font-weight: 400;
-  font-size: var(--t-h3); text-transform: uppercase; color: var(--ink);
-}
+.pform { display: grid; gap: 1.5rem; }
+.pform__title { font-family: Archivo, sans-serif; font-weight: 700; font-size: 1.25rem; text-transform: none; color: var(--pz-text); }
 .field { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
-.field-row { display: grid; gap: clamp(1.25rem, 2.5vw, 1.75rem); }
+.field-row { display: grid; gap: 1.5rem; }
 @media (min-width: 40rem) { .field-row { grid-template-columns: 1fr 1fr; } }
-.field label, .fieldset legend {
-  font-family: "Archivo Narrow", Archivo, sans-serif;
-  font-size: var(--t-sm); font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink);
-}
-.req { color: var(--gold-deep); }
-.hint { font-size: var(--t-sm); color: var(--on-chalk); line-height: 1.45; }
+.field label, .fieldset legend { font-family: Archivo, sans-serif; font-size: var(--t-sm); font-weight: 500; color: var(--pz-label); text-transform: none; letter-spacing: 0; }
+.req { color: #d97706; }
+.hint { font-size: var(--t-sm); color: var(--pz-hint); line-height: 1.45; }
 .field input[type="text"], .field input[type="email"], .field input[type="tel"],
 .field input[type="date"], .field textarea {
-  width: 100%; min-height: 3rem;
-  padding: 0.7rem 0.85rem;
-  font: inherit; font-size: 1rem; color: var(--ink);
-  background: oklch(1 0 0);
-  border: 2px solid oklch(var(--ink-ch) / 0.55);
-  border-radius: 0;
-  appearance: none;
+  width: 100%; min-height: 3rem; padding: 0.7rem 0.85rem;
+  font: inherit; font-size: 1rem; color: var(--pz-text);
+  background: var(--pz-surface); border: 1px solid var(--pz-line); border-radius: 0.5rem;
+  appearance: none; color-scheme: dark;
 }
 .field textarea { resize: vertical; min-height: 7rem; }
-.field input::placeholder, .field textarea::placeholder { color: oklch(var(--ink-ch) / 0.55); }
-.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-color: var(--ink); }
+.field input::placeholder, .field textarea::placeholder { color: #71717a; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--pz-teal); outline-offset: 2px; border-color: var(--pz-teal); }
 .fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .fieldset legend { padding: 0; margin-bottom: 0.6rem; }
 .check, .choice {
-  display: flex; align-items: flex-start; gap: 0.85rem;
-  padding: 0.9rem 1rem; min-height: 3rem;
-  border: 2px solid oklch(var(--ink-ch) / 0.55);
-  cursor: pointer; color: var(--ink);
-  text-transform: none; letter-spacing: 0; font-family: inherit; font-size: var(--t-b); font-weight: 500;
+  display: flex; align-items: flex-start; gap: 0.85rem; min-height: 3rem; padding: 0.75rem 1rem;
+  background: rgb(39 39 42 / 0.5); border: 1px solid rgb(82 82 91 / 0.5); border-radius: 0.5rem;
+  cursor: pointer; color: var(--pz-text); font-family: Archivo, sans-serif; font-size: var(--t-b); font-weight: 500;
+  text-transform: none; letter-spacing: 0;
 }
-.check input, .choice input { width: 1.35rem; height: 1.35rem; margin: 0.1rem 0 0; flex: none; accent-color: var(--field); }
-.check:has(input:checked), .choice:has(input:checked) { border-color: var(--ink); background: oklch(var(--ink-ch) / 0.05); }
-.check:has(input:focus-visible), .choice:has(input:focus-visible) { outline: 3px solid var(--ink); outline-offset: 2px; }
+.check input, .choice input { width: 1.25rem; height: 1.25rem; margin: 0.15rem 0 0; flex: none; accent-color: var(--pz-teal); }
+.check:has(input:checked), .choice:has(input:checked) { border-color: var(--pz-teal); background: rgb(19 78 74 / 0.25); }
+.check:has(input:focus-visible), .choice:has(input:focus-visible) { outline: 2px solid var(--pz-teal); outline-offset: 2px; }
 .choices { display: grid; gap: 0.75rem; }
 .choice span { display: grid; gap: 0.15rem; }
-.choice b { font-weight: 700; }
-.choice small { font-size: var(--t-sm); color: var(--on-chalk); }
-.pform__error {
-  padding: 0.85rem 1rem;
-  border: 2px solid oklch(0.48 0.19 27); color: oklch(0.42 0.19 27);
-  font-weight: 600;
-}
-.pform .btn[disabled] { opacity: 0.6; }
-.pthanks { margin-top: clamp(2rem, 4vw, 3rem); border: 2px solid var(--ink); background: oklch(1 0 0); padding: clamp(1.5rem, 4vw, 3rem); }
-.pthanks h3 { font-family: Graduate, Georgia, serif; font-weight: 400; font-size: var(--t-h2); text-transform: uppercase; line-height: 0.95; color: var(--ink); margin-bottom: 1rem; }
+.choice b { font-weight: 600; }
+.choice small { font-size: var(--t-sm); color: var(--pz-hint); font-weight: 400; }
+.pform__error { padding: 0.85rem 1rem; border: 1px solid #f87171; border-radius: 0.5rem; background: rgb(127 29 29 / 0.3); color: #fecaca; font-weight: 600; }
+.pform .btn { font-family: Archivo, sans-serif; border: 0; border-radius: 0.375rem; color: #fff; text-transform: none; letter-spacing: 0; font-size: 1.125rem; font-weight: 600;
+  background-image: linear-gradient(to right, var(--pz-teal), var(--pz-pink), var(--pz-amber)); }
+.pform .btn:hover { filter: brightness(0.9); transform: none; }
+.pform .btn[disabled] { opacity: 0.55; }
+.pform .note { color: var(--pz-hint); }
+.pthanks { text-align: center; }
+.pthanks h3 { font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(2.25rem, 1.4rem + 3vw, 3.25rem); text-transform: none; letter-spacing: -0.02em; line-height: 1.05; color: var(--pz-text); margin-bottom: 1rem; }
+.pthanks .more .btn { border-color: var(--pz-line); color: var(--pz-text); }
 .pthanks:focus { outline: none; }
 
 /* ── footer ──────────────────────────────────────────────────────── */
