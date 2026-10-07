@@ -1317,6 +1317,71 @@ button.resource:active { transform: scale(0.995); transition-duration: 0.08s; }
 }
 .resource--soon .resource__cta { color: var(--fg-soft); }
 
+/* ── pledge form (/pledge) ───────────────────────────────────────── */
+.verse--chalk { color: var(--on-chalk); margin-top: 1.5rem; }
+.verse--chalk cite { color: var(--gold-deep); }
+.textlink--dark { color: var(--ink); }
+
+.pform {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  border: 2px solid var(--ink);
+  background: oklch(1 0 0);
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  display: grid; gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.pform__title {
+  font-family: Graduate, Georgia, serif; font-weight: 400;
+  font-size: var(--t-h3); text-transform: uppercase; color: var(--ink);
+}
+.field { display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.field-row { display: grid; gap: clamp(1.25rem, 2.5vw, 1.75rem); }
+@media (min-width: 40rem) { .field-row { grid-template-columns: 1fr 1fr; } }
+.field label, .fieldset legend {
+  font-family: "Archivo Narrow", Archivo, sans-serif;
+  font-size: var(--t-sm); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink);
+}
+.req { color: var(--gold-deep); }
+.hint { font-size: var(--t-sm); color: var(--on-chalk); line-height: 1.45; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"],
+.field input[type="date"], .field textarea {
+  width: 100%; min-height: 3rem;
+  padding: 0.7rem 0.85rem;
+  font: inherit; font-size: 1rem; color: var(--ink);
+  background: oklch(1 0 0);
+  border: 2px solid oklch(var(--ink-ch) / 0.55);
+  border-radius: 0;
+  appearance: none;
+}
+.field textarea { resize: vertical; min-height: 7rem; }
+.field input::placeholder, .field textarea::placeholder { color: oklch(var(--ink-ch) / 0.55); }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-color: var(--ink); }
+.fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.fieldset legend { padding: 0; margin-bottom: 0.6rem; }
+.check, .choice {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  padding: 0.9rem 1rem; min-height: 3rem;
+  border: 2px solid oklch(var(--ink-ch) / 0.55);
+  cursor: pointer; color: var(--ink);
+  text-transform: none; letter-spacing: 0; font-family: inherit; font-size: var(--t-b); font-weight: 500;
+}
+.check input, .choice input { width: 1.35rem; height: 1.35rem; margin: 0.1rem 0 0; flex: none; accent-color: var(--field); }
+.check:has(input:checked), .choice:has(input:checked) { border-color: var(--ink); background: oklch(var(--ink-ch) / 0.05); }
+.check:has(input:focus-visible), .choice:has(input:focus-visible) { outline: 3px solid var(--ink); outline-offset: 2px; }
+.choices { display: grid; gap: 0.75rem; }
+.choice span { display: grid; gap: 0.15rem; }
+.choice b { font-weight: 700; }
+.choice small { font-size: var(--t-sm); color: var(--on-chalk); }
+.pform__error {
+  padding: 0.85rem 1rem;
+  border: 2px solid oklch(0.48 0.19 27); color: oklch(0.42 0.19 27);
+  font-weight: 600;
+}
+.pform .btn[disabled] { opacity: 0.6; }
+.pthanks { margin-top: clamp(2rem, 4vw, 3rem); border: 2px solid var(--ink); background: oklch(1 0 0); padding: clamp(1.5rem, 4vw, 3rem); }
+.pthanks h3 { font-family: Graduate, Georgia, serif; font-weight: 400; font-size: var(--t-h2); text-transform: uppercase; line-height: 0.95; color: var(--ink); margin-bottom: 1rem; }
+.pthanks:focus { outline: none; }
+
 /* ── footer ──────────────────────────────────────────────────────── */
 .foot {
   background: var(--ink);

@@ -1,6 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/gain-day-pledge",
+      "destination": "https://www.tlhc.org/api/gain-day-pledge"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/fonts/(.*)",

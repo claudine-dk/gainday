@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I'm In | GAIN Stewardship Campaign | The Lighthouse Church</title>
+<meta name="description" content="Make your two-year GAIN pledge. Share your family's commitment to the GAIN Stewardship Campaign.">
+<meta name="theme-color" content="#0c2111">
+
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="I'm In | GAIN Stewardship Campaign | The Lighthouse Church">
+<meta property="og:description" content="Make your two-year GAIN pledge. Share your family's commitment to the GAIN Stewardship Campaign.">
+<meta property="og:image" content="/assets/field-night.jpg">
+
+<link rel="preload" href="/assets/fonts/graduate-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-narrow-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body class="no-hero">
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="drive" aria-hidden="true"><span class="drive__bar"></span></div>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="/" aria-label="GAIN, The Lighthouse Church, home">
+      <span class="brand__mark"><img src="/assets/gain-stamp.png" alt="The Lighthouse Church, GAIN Campaign" class="brand__mark-img" width="600" height="600"></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sections">
+      <a href="/story">Our Story</a>
+      <a href="/vision">The Vision</a>
+      <a href="/journey">Your Journey</a>
+      <a href="/resources">Resources</a>
+      <a href="/give" aria-current="page">Give</a>
+    </nav>
+
+    <a class="btn btn--gold nav__cta" href="/pledge">
+      I'm In
+    </a>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="drawer" id="drawer" hidden>
+    <a href="/story">Our Story</a>
+    <a href="/vision">The Vision</a>
+    <a href="/journey">Your Journey</a>
+    <a href="/resources">Resources</a>
+    <a href="/give" aria-current="page">Give</a>
+    <a class="drawer__cta" href="/pledge">
+      I'm In
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ PLEDGE FORM ══════════════════════════════════════════════════ -->
+<section class="band band--chalk" id="pledge-form">
+  <div class="wrap wrap--narrow">
+    <header class="shead shead--plain">
+      <div class="shead__txt">
+        <p class="kicker">GAIN Stewardship Campaign</p>
+        <h2>I'm in</h2>
+      </div>
+    </header>
+
+    <div id="pledge-intro">
+      <p class="lede">Thank you for partnering with us. Please complete the fields below so we can record your family's commitment.</p>
+
+      <blockquote class="verse verse--chalk">
+        <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us...&rdquo;</p>
+        <cite>Ephesians 3:20</cite>
+      </blockquote>
+    </div>
+
+    <form class="pform" id="pledge" novalidate>
+      <h3 class="pform__title">Pledge form</h3>
+
+      <div class="field">
+        <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+        <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="First and last name">
+      </div>
+
+      <div class="field">
+        <label for="spouseName">Spouse or family name</label>
+        <p class="hint" id="spouseName-h">If this is a joint commitment (optional)</p>
+        <input id="spouseName" name="spouseName" type="text" aria-describedby="spouseName-h">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Best email to reach you">
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Best number to reach you">
+        </div>
+      </div>
+
+      <fieldset class="field fieldset">
+        <legend>Our commitment</legend>
+        <label class="check" for="committed">
+          <input id="committed" name="committed" type="checkbox" required>
+          <span>Yes &#8212; I am committing to the Gain Day Stewardship Campaign. <span class="req" aria-hidden="true">*</span></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="field fieldset">
+        <legend>Pledge type <span class="req" aria-hidden="true">*</span></legend>
+        <div class="choices">
+          <label class="choice" for="pledgeType-monthly">
+            <input id="pledgeType-monthly" name="pledgeType" type="radio" value="monthly" checked>
+            <span><b>Monthly pledge</b><small>A recurring monthly gift over 2 years</small></span>
+          </label>
+          <label class="choice" for="pledgeType-two-year-total">
+            <input id="pledgeType-two-year-total" name="pledgeType" type="radio" value="two-year-total">
+            <span><b>2-year total pledge</b><small>A total commitment over 2 years, not necessarily monthly</small></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="pledgeAmount"><span id="pledgeAmount-l">Our monthly pledge amount (USD)</span> <span class="req" aria-hidden="true">*</span></label>
+        <p class="hint" id="pledgeAmount-h">Over the next 2 years, above our tithes and offerings, our family is committing this amount per month. (Enter a number, e.g. 10000)</p>
+        <input id="pledgeAmount" name="pledgeAmount" type="text" inputmode="decimal" required placeholder="e.g. 10000" aria-describedby="pledgeAmount-h">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="firstGiftDate">First gift / lead gift date <span class="req" aria-hidden="true">*</span></label>
+          <p class="hint" id="firstGiftDate-h">The date of our lead gift or first contribution.</p>
+          <input id="firstGiftDate" name="firstGiftDate" type="date" required aria-describedby="firstGiftDate-h">
+        </div>
+        <div class="field">
+          <label for="leadGiftAmount">Lead gift amount</label>
+          <p class="hint" id="leadGiftAmount-h">If different from pledge amount (optional)</p>
+          <input id="leadGiftAmount" name="leadGiftAmount" type="text" inputmode="decimal" placeholder="Optional" aria-describedby="leadGiftAmount-h">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything you would like Pastor Keion Henderson to know?</label>
+        <p class="hint" id="notes-h">Optional</p>
+        <textarea id="notes" name="notes" rows="4" placeholder="Any questions or thoughts you'd like to share..." aria-describedby="notes-h"></textarea>
+      </div>
+
+      <p class="pform__error" id="pledge-error" role="alert" hidden></p>
+
+      <button class="btn btn--gold btn--lg btn--block" type="submit" id="pledge-submit">Submit my commitment</button>
+
+      <noscript>
+        <p class="note">This form needs JavaScript. You can also
+        <a class="textlink textlink--dark" href="https://www.tlhc.org/gain-form">use the form at tlhc.org</a>.</p>
+      </noscript>
+    </form>
+
+    <div class="pthanks" id="pledge-thanks" tabindex="-1" hidden>
+      <h3>Thank you.</h3>
+      <p class="lede">Your commitment has been received. Our Chief Strategy Officer, Ivy McGregor, will be in touch personally.</p>
+      <blockquote class="verse verse--chalk">
+        <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us...&rdquo;</p>
+        <cite>Ephesians 3:20</cite>
+      </blockquote>
+      <p class="more"><a class="btn btn--ghost btn--lg" href="/resources/spiritual-commitment">Make my spiritual commitment</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <img class="foot__logo" src="/assets/gain-stamp.png" alt="The Lighthouse Church GAIN Campaign" width="600" height="600" loading="lazy">
+
+      <ul class="foot__socials" aria-label="Follow The Lighthouse Church">
+        <li>
+          <a href="https://www.facebook.com/TheLightHouseChurch" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9.25"/>
+              <path d="M13.6 21v-7.1h2.2l.35-2.7h-2.55V9.5c0-.78.22-1.32 1.33-1.32H16V5.86c-.24-.03-1.06-.1-2.02-.1-2 0-3.38 1.22-3.38 3.46v2.02H8.2v2.7h2.4V21"/>
+            </svg>
+            <span class="sr-only">Facebook (opens in a new tab)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/lhhoustonchurch" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
+              <circle cx="12" cy="12" r="4.15"/>
+              <circle cx="17.15" cy="6.85" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="sr-only">Instagram (opens in a new tab)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/KeionHendersonTV" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2.5" y="5.75" width="19" height="12.5" rx="4"/>
+              <path d="M10.2 9.4v5.2l4.6-2.6-4.6-2.6z" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="sr-only">YouTube (opens in a new tab)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.threads.com/@lhhoustonchurch" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9.25"/>
+              <path d="M12.4 7.3c-3 0-4.75 1.8-4.75 5s1.75 5 4.75 5c2.5 0 4.05-1.15 4.5-2.85.4-1.5-.15-2.9-1.6-3.5-1.1-.45-2.5-.5-3.5.1-.75.45-1.05 1.15-.75 1.85.3.7 1.15.95 1.95.65"/>
+            </svg>
+            <span class="sr-only">Threads (opens in a new tab)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="foot__in">
+      <div>
+        <p class="foot__name">The Lighthouse Church and Ministries</p>
+        <p>6650 Rankin Rd., Houston, TX 77396</p>
+        <p><a href="https://tlhc.org">tlhc.org</a></p>
+      </div>
+      <p class="foot__verse">“Now to Him who is able…” Ephesians 3:20</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="/main.js"></script>
+<script src="/pledge.js"></script>
+</body>
+</html>
