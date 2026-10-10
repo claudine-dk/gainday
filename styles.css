@@ -1429,7 +1429,7 @@ button.resource:active { transform: scale(0.995); transition-duration: 0.08s; }
 .foot__name { color: var(--chalk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; }
 .foot a { color: var(--gold); text-underline-offset: 3px; display: inline-block; padding: 0.75rem 0.3rem; margin-inline: -0.3rem; }
 .foot a:active { color: var(--gold-deep); }
-.foot__verse { max-width: 30ch; }
+.foot__verse { max-width: 62ch; }
 
 /* ── sticky ask ──────────────────────────────────────────────────── */
 .sticky {
