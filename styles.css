@@ -1006,9 +1006,10 @@ section[id] { scroll-margin-top: 5.5rem; }
 
 .tier {
   display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
-  align-items: baseline;
-  gap: 0.35rem clamp(1rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  grid-template-areas: "amt name" "amt mo";
+  align-items: center;
+  gap: 0.2rem clamp(1rem, 3vw, 2.5rem);
   padding: clamp(1.1rem, 2.6vw, 1.6rem) 0.75rem;
   margin-inline: -0.75rem;
   text-decoration: none;
@@ -1018,6 +1019,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 .tier:active { transform: scale(0.995); transition-duration: 0.08s; }
 
 .tier__amt {
+  grid-area: amt;
   font-family: Graduate, Georgia, serif;
   line-height: 0.95;
   color: var(--chalk);
@@ -1033,6 +1035,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 .tier--top .tier__name { color: var(--gold); }
 
 .tier__name {
+  grid-area: name; align-self: end;
   font-family: "Archivo Narrow", Archivo, sans-serif;
   font-size: clamp(0.95rem, 2vw, 1.25rem); font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.2em;
@@ -1043,8 +1046,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   font-size: var(--t-sm);
   text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--on-navy-3);
-  text-align: right;
-  white-space: nowrap;
+  grid-area: mo; align-self: start;
 }
 /* the arrow only appears where a pointer can act on it */
 @media (hover: hover) {
@@ -1058,8 +1060,17 @@ section[id] { scroll-margin-top: 5.5rem; }
   .tier:focus-visible .tier__mo::after { opacity: 1; }
 }
 @media (max-width: 40rem) {
-  .tier { grid-template-columns: minmax(0, 1fr); }
-  .tier__mo { text-align: left; }
+  .tier { grid-template-columns: minmax(0, 1fr); grid-template-areas: "amt" "name" "mo"; }
+  .tier__name, .tier__mo { align-self: auto; }
+}
+
+/* partner tiers (left) beside an optional widget slot (right); the slot
+   collapses when empty so the tiers keep the full width until it is filled */
+.tiers-layout { display: grid; gap: clamp(2rem, 4vw, 3rem); }
+.tiers-layout .tiers { margin-top: clamp(2.75rem, 6vw, 4.5rem); }
+.tiers-widget:empty { display: none; }
+@media (min-width: 64rem) {
+  .tiers-layout:has(.tiers-widget:not(:empty)) { grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); align-items: start; }
 }
 
 /* ── 11 pledge ───────────────────────────────────────────────────── */

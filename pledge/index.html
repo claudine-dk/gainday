@@ -38,10 +38,11 @@
       <a href="/journey">Your Journey</a>
       <a href="/resources">Resources</a>
       <a href="/give" aria-current="page">Give</a>
+    <a href="https://shop.tlhc.org/collections/gain" target="_blank" rel="noopener">Shop<span class="sr-only"> (opens in a new tab)</span></a>
     </nav>
 
-    <a class="btn btn--gold nav__cta" href="/pledge">
-      I'm In
+    <a class="btn btn--gold nav__cta" href="https://pushpay.com/c/3cbe65edb3354a21a2f06c26df8ffdff/k5p4QbYUJurzppHIJHQ8dA" target="_blank" rel="noopener">
+      I'm In<span class="sr-only"> (opens in a new tab)</span>
     </a>
 
     <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
@@ -55,8 +56,9 @@
     <a href="/journey">Your Journey</a>
     <a href="/resources">Resources</a>
     <a href="/give" aria-current="page">Give</a>
-    <a class="drawer__cta" href="/pledge">
-      I'm In
+    <a href="https://shop.tlhc.org/collections/gain" target="_blank" rel="noopener">Shop<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="drawer__cta" href="https://pushpay.com/c/3cbe65edb3354a21a2f06c26df8ffdff/k5p4QbYUJurzppHIJHQ8dA" target="_blank" rel="noopener">
+      I'm In<span class="sr-only"> (opens in a new tab)</span>
     </a>
   </div>
 </header>
@@ -74,7 +76,7 @@
     </header>
 
     <div id="pledge-intro">
-      <p class="lede">Thank you for partnering with us. Please complete the fields below so we can record your family's commitment.</p>
+      <p class="lede">Thank you for partnering with us.</p>
 
       <blockquote class="verse verse--chalk">
         <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us, to Him be glory in the church by Christ Jesus to all generations, forever and ever. Amen.&rdquo;</p>
@@ -82,97 +84,8 @@
       </blockquote>
     </div>
 
-    <form class="pform" id="pledge" novalidate>
-      <h3 class="pform__title">Pledge form</h3>
-
-      <div class="field">
-        <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
-        <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="First and last name">
-      </div>
-
-      <div class="field">
-        <label for="spouseName">Spouse or family name</label>
-        <p class="hint" id="spouseName-h">If this is a joint commitment (optional)</p>
-        <input id="spouseName" name="spouseName" type="text" aria-describedby="spouseName-h">
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Best email to reach you">
-        </div>
-        <div class="field">
-          <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Best number to reach you">
-        </div>
-      </div>
-
-      <fieldset class="field fieldset">
-        <legend>Our commitment</legend>
-        <label class="check" for="committed">
-          <input id="committed" name="committed" type="checkbox" required>
-          <span>Yes &#8212; I am committing to the Gain Day Stewardship Campaign. <span class="req" aria-hidden="true">*</span></span>
-        </label>
-      </fieldset>
-
-      <fieldset class="field fieldset">
-        <legend>Pledge type <span class="req" aria-hidden="true">*</span></legend>
-        <div class="choices">
-          <label class="choice" for="pledgeType-monthly">
-            <input id="pledgeType-monthly" name="pledgeType" type="radio" value="monthly" checked>
-            <span><b>Monthly pledge</b><small>A recurring monthly gift over 2 years</small></span>
-          </label>
-          <label class="choice" for="pledgeType-two-year-total">
-            <input id="pledgeType-two-year-total" name="pledgeType" type="radio" value="two-year-total">
-            <span><b>2-year total pledge</b><small>A total commitment over 2 years, not necessarily monthly</small></span>
-          </label>
-        </div>
-      </fieldset>
-
-      <div class="field">
-        <label for="pledgeAmount"><span id="pledgeAmount-l">Our monthly pledge amount (USD)</span> <span class="req" aria-hidden="true">*</span></label>
-        <p class="hint" id="pledgeAmount-h">Over the next 2 years, above our tithes and offerings, our family is committing this amount per month. (Enter a number, e.g. 10000)</p>
-        <input id="pledgeAmount" name="pledgeAmount" type="text" inputmode="decimal" required placeholder="e.g. 10000" aria-describedby="pledgeAmount-h">
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="firstGiftDate">First gift / lead gift date <span class="req" aria-hidden="true">*</span></label>
-          <p class="hint" id="firstGiftDate-h">The date of our lead gift or first contribution.</p>
-          <input id="firstGiftDate" name="firstGiftDate" type="date" required aria-describedby="firstGiftDate-h">
-        </div>
-        <div class="field">
-          <label for="leadGiftAmount">Lead gift amount</label>
-          <p class="hint" id="leadGiftAmount-h">If different from pledge amount (optional)</p>
-          <input id="leadGiftAmount" name="leadGiftAmount" type="text" inputmode="decimal" placeholder="Optional" aria-describedby="leadGiftAmount-h">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="notes">Anything you would like Pastor Keion Henderson to know?</label>
-        <p class="hint" id="notes-h">Optional</p>
-        <textarea id="notes" name="notes" rows="4" placeholder="Any questions or thoughts you'd like to share..." aria-describedby="notes-h"></textarea>
-      </div>
-
-      <p class="pform__error" id="pledge-error" role="alert" hidden></p>
-
-      <button class="btn btn--gold btn--lg btn--block" type="submit" id="pledge-submit">Submit my commitment</button>
-
-      <noscript>
-        <p class="note">This form needs JavaScript. You can also
-        <a class="textlink textlink--dark" href="https://www.tlhc.org/gain-form">use the form at tlhc.org</a>.</p>
-      </noscript>
-    </form>
-
-    <div class="pthanks" id="pledge-thanks" tabindex="-1" hidden>
-      <h3>Thank you.</h3>
-      <blockquote class="verse verse--chalk">
-        <p>&ldquo;Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us, to Him be glory in the church by Christ Jesus to all generations, forever and ever. Amen.&rdquo;</p>
-        <cite>Ephesians 3:20&#8211;21</cite>
-      </blockquote>
-      <p class="more"><a class="btn btn--gold btn--lg btn--block pthanks__cta" href="/resources/spiritual-commitment">Make my spiritual commitment</a></p>
-    </div>
-  </div>
+    <p class="more"><a class="btn btn--gold btn--lg btn--block pthanks__cta" href="/resources/spiritual-commitment">Make my spiritual commitment</a></p>
+</div>
 </section>
 
 </main>
@@ -237,6 +150,6 @@
 
 
 <script src="/main.js"></script>
-<script src="/pledge.js"></script>
+
 </body>
 </html>
