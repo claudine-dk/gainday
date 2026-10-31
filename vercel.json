@@ -1,6 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/resources/spiritual-commitment",
+      "destination": "/pledge",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/gain-day-pledge",
